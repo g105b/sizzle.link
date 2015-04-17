@@ -1,0 +1,10 @@
+*.sublime-*
+composer.phar
+www/Asset/*
+www/Script-*/*
+www/Style-*/*
+www/static-fingerprint
+vendor/*
+src/Asset/vendor/*
+src/Style/vendor/*
+data/aws_config.json
