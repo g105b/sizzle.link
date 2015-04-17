@@ -1,0 +1,8 @@
+{
+        "minimum-stability": "dev",
+
+        "require": {
+                "brightflair/php.gt": "dev-master",
+                "aws/aws-sdk-php": "2.*"
+        }
+}
