@@ -1,6 +1,4 @@
 <?php
 namespace SizzleLink;
 
-use RuntimeException;
-
-class IncorrectDecryptionPasswordException extends RuntimeException {}
+class IncorrectDecryptionPasswordException extends SizzleLinkException {}
