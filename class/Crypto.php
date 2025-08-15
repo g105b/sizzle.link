@@ -2,6 +2,7 @@
 namespace SizzleLink;
 
 use SodiumException;
+use Throwable;
 
 class Crypto {
 	public function __construct(
@@ -52,7 +53,11 @@ class Crypto {
 			SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE,
 		);
 
-		$decrypted = sodium_crypto_secretbox_open($cipherText, $iv, $key);
+		$decrypted = null;
+		try {
+			$decrypted = sodium_crypto_secretbox_open($cipherText, $iv, $key);
+		}
+		catch(Throwable) {}
 		if(!$decrypted) {
 			throw new IncorrectDecryptionPasswordException();
 		}

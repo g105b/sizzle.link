@@ -21,13 +21,28 @@
 
 </section>
 
-<dialog class="output" id="secret">
-	<label>
-		<span>Secret</span>
-		<textarea readonly></textarea>
-	</label>
+<dialog class="output" id="secret" data-element data-bind:data-secret="secret">
+	<form>
+		<label>
+			<span>Secret</span>
+			<textarea name="secret" readonly data-bind:value="secret">This secret has sizzled</textarea>
+		</label>
 
-	<button class="actions">
-		<button id="copy-decrypted">Copy & close</button>
-	</button>
+		<div class="actions">
+			<button class="copy-close">Copy & close</button>
+		</div>
+	</form>
+	<script>
+		const dialog = document.currentScript.parentElement;
+		const textarea = dialog.querySelector("[name='secret']");
+		const button = dialog.querySelector("button.copy-close");
+		textarea.select();
+		dialog.showModal();
+		button.addEventListener("click", e => {
+			e.preventDefault();
+			navigator.clipboard.writeText(textarea.value);
+			dialog.close();
+			window.location = "/";
+		});
+	</script>
 </dialog>
