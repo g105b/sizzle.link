@@ -3,6 +3,8 @@
 	--bg: white;
 	--text: #0b0b0b;
 	--warn: #fff200;
+	--error: #ff4d4d;
+	--error-text: var(--bg);
 }
 
 :focus {
@@ -57,45 +59,6 @@ section {
 			text-transform: uppercase;
 		}
 	}
-
-	form {
-		width: min(80vw, 32rem);
-
-		label {
-			display: block;
-
-			span {
-				display: block;
-				padding: 0.5rem;
-				margin: 1rem;
-				font-weight: bold;
-			}
-			input,textarea {
-				display: block;
-				font-size: 1rem;
-				box-sizing: border-box;
-				width: calc(100% - 2rem);
-				padding: 0.5rem;
-				margin: 1rem;
-				margin-top: -1rem;
-				border: 0.25rem solid var(--text);
-				border-radius: 1rem;
-			}
-			textarea {
-				min-height: 8rem;
-				resize: vertical;
-			}
-		}
-
-		.actions {
-			margin: 2rem 1rem;
-		}
-	}
-
-	p {
-		font-size: 0.8rem;
-		margin: 1rem;
-	}
 }
 
 button {
@@ -109,5 +72,103 @@ button {
 
 	&:hover {
 		background-color: color-mix(in srgb, var(--accent), var(--bg) 50%);
+	}
+}
+
+form {
+	label {
+		display: block;
+
+		span {
+			display: block;
+			padding: 0.5rem;
+			margin: 1rem;
+			font-weight: bold;
+		}
+		input,textarea {
+			display: block;
+			font-size: 1rem;
+			box-sizing: border-box;
+			width: calc(100% - 2rem);
+			padding: 0.5rem;
+			margin: 1rem;
+			margin-top: -1rem;
+			border: 0.25rem solid var(--text);
+			border-radius: 1rem;
+		}
+		textarea {
+			min-height: 8rem;
+			resize: vertical;
+		}
+	}
+
+	.actions {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		margin: 2rem 1rem;
+
+		&.center {
+			justify-content: center;
+		}
+	}
+}
+
+p {
+	font-size: 0.8rem;
+	margin: 1rem;
+
+	&.error {
+		background-color: var(--error);
+		color: var(--error-text);
+		padding: 1rem;
+		font-weight: bold;
+		font-size: 1rem;
+		text-align: center;
+	}
+
+	&.disclosure {
+		background-color: var(--warn);
+		padding: 1rem;
+		border-radius: 1rem;
+		color: var(--text);
+		border: 2px dashed var(--text);
+	}
+
+	&.info {
+		text-align: center;
+	}
+}
+
+.label-with-button {
+	display: flex;
+	justify-content: stretch;
+	align-items: flex-end;
+
+	label {
+		flex-grow: 1;
+	}
+
+	button {
+		margin-bottom: 1rem;
+
+		&.copied {
+			position: relative;
+			color: transparent;
+			background-color: hsl(from var(--accent) calc(h + 180) s l);
+
+			&:after {
+				content: "✅";
+				position: absolute;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				color: var(--text);
+			}
+		}
 	}
 }

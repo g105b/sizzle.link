@@ -1,0 +1,33 @@
+<section>
+	<header>
+		<span class="brand"><a href="/">🔥 sizzle.link</a> : View your secret</span>
+	</header>
+
+	<p class="disclosure"><strong>Disclosure:</strong> Viewing will burn the secret. It will never be shown again.</p>
+
+	<p class="error" data-element data-bind:text="error">Error message goes here</p>
+
+	<form method="post">
+		<label>
+			<span>Password</span>
+			<input name="password" type="password" autocomplete="current-password" placeholder="Enter password to decrypt" autofocus />
+		</label>
+
+		<div class="actions">
+			<button name="do" value="view">View and burn</button>
+			<a href="/">Go back</a>
+		</div>
+	</form>
+
+</section>
+
+<dialog class="output" id="secret">
+	<label>
+		<span>Secret</span>
+		<textarea readonly></textarea>
+	</label>
+
+	<button class="actions">
+		<button id="copy-decrypted">Copy & close</button>
+	</button>
+</dialog>

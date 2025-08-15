@@ -1,59 +1,70 @@
 <section>
 	<header>
-		<span class="brand">sizzle.link</span>
-<!--		<span class="pill">Compose</span>-->
+		<span class="brand">🔥 sizzle.link</span>
 	</header>
 
-	<div class="message" id="send">
-		<form method="post">
-			<label>
-				<span>Secret</span>
-				<textarea name="secret" placeholder="Type or paste your secret" required></textarea>
-			</label>
-			<label>
-				<span>Password (required)</span>
-				<input name="password" type="password" autocomplete="new-password" minlength="8" placeholder="Enter password to encrypt" required />
-			</label>
-			<div class="actions">
-				<button name="do" value="create-link">Create link</button>
-			</div>
-		</form>
+	<form method="post">
+		<label>
+			<span>Link ID</span>
+			<input name="code" required autocomplete="off" />
+		</label>
+		<div class="actions">
+			<button name="do" value="get-secret">Get secret</button>
+		</div>
+	</form>
 
-		<p>Creates a one-time-use secret link. Secret automatically burns after opening.</p>
-	</div>
-
-	<div class="message" id="receive" hidden>
-		<p><strong>Disclosure: Viewing will burn the secret. It will never be shown again.</strong></p>
+	<form method="post">
 		<label>
 			<span>Secret</span>
-			<input type="password" autocomplete="current-password" placeholder="Enter password to decrypt" readonly />
+			<textarea name="secret" placeholder="Type or paste your secret" required></textarea>
 		</label>
-
+		<label>
+			<span>Password (required)</span>
+			<input name="password" type="password" autocomplete="new-password" minlength="8" placeholder="Enter password to encrypt" required />
+		</label>
 		<div class="actions">
-			<button class="btn" id="btn-open">View and burn</button>
+			<button name="do" value="create-link">Create link</button>
 		</div>
-	</div>
+	</form>
+
+	<p>Creates a one-time-use secret link. Secret automatically burns after opening.</p>
 </section>
 
-<dialog id="link">
-	<label>
-		<span>Link</span>
-		<input name="link" readonly />
-	</label>
+<dialog class="output" id="link" data-element data-bind:data-code="code">
+	<form>
+		<div class="label-with-button">
+			<label>
+				<span>Sharable link</span>
+				<input name="link" readonly data-bind:value="link" />
+			</label>
 
-	<button class="actions">
-		<button id="copy-link">Copy</button>
-	</button>
+			<button class="copy">Copy</button>
+		</div>
 
-	<small class="mono">One‑time secret link. Burns on first open. Recipients can still copy text.</small>
-</dialog>
-<dialog id="secret">
-	<label>
-		<span>Secret</span>
-		<textarea readonly></textarea>
-	</label>
+		<div class="actions center">
+			<button class="close">Close</button>
+		</div>
 
-	<button class="actions">
-		<button id="copy-decrypted">Copy & close</button>
-	</button>
+		<p class="info"><small>One‑time secret link. Burns on first open. Recipients can still copy text.</small></p>
+	</form>
+	<script>
+		const dialog = document.currentScript.parentElement;
+		const linkInput = dialog.querySelector("[name='link']");
+		const copyButton = dialog.querySelector("button.copy");
+
+		dialog.showModal();
+		linkInput.select();
+		copyButton.addEventListener("click", e => {
+			e.preventDefault();
+			navigator.clipboard.writeText(linkInput.value);
+			copyButton.classList.add("copied");
+			setTimeout(() => {
+				copyButton.classList.remove("copied");
+			}, 1000);
+		});
+		dialog.querySelector("button.close").addEventListener("click", e => {
+			e.preventDefault();
+			window.location.href = "/";
+		});
+	</script>
 </dialog>
