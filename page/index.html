@@ -1,0 +1,59 @@
+<section>
+	<header>
+		<span class="brand">sizzle.link</span>
+<!--		<span class="pill">Compose</span>-->
+	</header>
+
+	<div class="message" id="send">
+		<form method="post">
+			<label>
+				<span>Secret</span>
+				<textarea name="secret" placeholder="Type or paste your secret" required></textarea>
+			</label>
+			<label>
+				<span>Password (required)</span>
+				<input name="password" type="password" autocomplete="new-password" minlength="8" placeholder="Enter password to encrypt" required />
+			</label>
+			<div class="actions">
+				<button name="do" value="create-link">Create link</button>
+			</div>
+		</form>
+
+		<p>Creates a one-time-use secret link. Secret automatically burns after opening.</p>
+	</div>
+
+	<div class="message" id="receive" hidden>
+		<p><strong>Disclosure: Viewing will burn the secret. It will never be shown again.</strong></p>
+		<label>
+			<span>Secret</span>
+			<input type="password" autocomplete="current-password" placeholder="Enter password to decrypt" readonly />
+		</label>
+
+		<div class="actions">
+			<button class="btn" id="btn-open">View and burn</button>
+		</div>
+	</div>
+</section>
+
+<dialog id="link">
+	<label>
+		<span>Link</span>
+		<input name="link" readonly />
+	</label>
+
+	<button class="actions">
+		<button id="copy-link">Copy</button>
+	</button>
+
+	<small class="mono">One‑time secret link. Burns on first open. Recipients can still copy text.</small>
+</dialog>
+<dialog id="secret">
+	<label>
+		<span>Secret</span>
+		<textarea readonly></textarea>
+	</label>
+
+	<button class="actions">
+		<button id="copy-decrypted">Copy & close</button>
+	</button>
+</dialog>
