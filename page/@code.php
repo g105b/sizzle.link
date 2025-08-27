@@ -6,11 +6,13 @@ use Gt\Routing\Path\DynamicPath;
 use SizzleLink\EncryptedSecret;
 use SizzleLink\IncorrectDecryptionPasswordException;
 use SizzleLink\SecretNotFoundException;
+use SizzleLink\SecretSizzledException;
 
 function go(Input $input, Binder $binder):void {
 	if($error = $input->getString("error")) {
 		$errorMessage = match($error) {
 			"wrong-password" => "The provided password did not match.",
+			"sizzled" => "This secret has already sizzled.",
 			default => "There has been an error decrypting your message.",
 		};
 
@@ -33,5 +35,8 @@ function do_view(
 	}
 	catch(SecretNotFoundException|IncorrectDecryptionPasswordException) {
 		$response->redirect("?error=wrong-password");
+	}
+	catch(SecretSizzledException) {
+		$response->redirect("?error=sizzled");
 	}
 }
