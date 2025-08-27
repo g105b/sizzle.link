@@ -188,6 +188,7 @@ dialog {
 details {
 	summary {
 		padding: 1rem;
+		cursor: pointer;
 	}
 
 	&[open] {
