@@ -184,3 +184,13 @@ dialog {
 	border: 4px solid var(--text);
 	border-radius: 1rem;
 }
+
+details {
+	summary {
+		padding: 1rem;
+	}
+
+	&[open] {
+		border-bottom: 0.25rem solid var(--text);
+	}
+}
