@@ -1,22 +1,21 @@
-G105B Non-Commercial License v1.0
+MIT License
 
 Copyright (c) 2025 Greg Bowler
 
-This project is **source-available** rather than open source. The code is
-public and you are free to read, learn from, and modify it, but commercial use
-is restricted. Unlike OSI-approved open source licenses, this license does not
-permit unrestricted use for profit.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-You are free to read, copy, change, and share this code as long as you:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-1. Don't use it for commercial purposes: You can't sell it, use it in a paid
-product or service, or make money from it in any way, unless you have my
-permission.
-
-2. Keep credit: Any copy or substantial part of this code must include my name
-and this license.
-
-3. Accept no warranty: This software is provided as-is, with no guarantees. I
-am not responsible for any issues that arise from using it.
-
-If you'd like to use this code commercially, please contact me: greg@g105b.com
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
