@@ -12,7 +12,7 @@ function go(Input $input, Binder $binder):void {
 	if($error = $input->getString("error")) {
 		$errorMessage = match($error) {
 			"wrong-password" => "The provided password did not match.",
-			"sizzled" => "This secret has already sizzled.",
+			"sizzled" => "This secret has already been viewed.",
 			default => "There has been an error decrypting your message.",
 		};
 
