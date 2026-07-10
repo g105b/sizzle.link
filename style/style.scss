@@ -43,8 +43,8 @@ section {
 		justify-content: space-between;
 		align-items: center;
 		padding: 0.5rem;
-		border-top-left-radius: 1rem;
-		border-top-right-radius: 1rem;
+		border-top-left-radius: 0.75rem;
+		border-top-right-radius: 0.75rem;
 		background-color: color-mix(in srgb, var(--accent), var(--bg) 50%);
 		border-bottom: 0.25rem solid var(--text);
 
