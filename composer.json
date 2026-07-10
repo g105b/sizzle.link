@@ -1,6 +1,6 @@
 {
 	"require": {
-		"phpgt/webengine": "dev-master",
+		"phpgt/webengine": "^5.0",
 		"ext-sodium": "*"
 	},
 	"require-dev": {
