@@ -34,17 +34,15 @@ section {
 	box-shadow: 0 0 1rem 0 color-mix(in srgb, var(--text), transparent 70%);
 	background-color: var(--bg);
 
-	@media(min-height: 64rem) {
-		margin-top: 4rem;
-	}
+	margin-top: 4rem;
 
 	header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: 0.5rem;
-		border-top-left-radius: 1rem;
-		border-top-right-radius: 1rem;
+		border-top-left-radius: 0.75rem;
+		border-top-right-radius: 0.75rem;
 		background-color: color-mix(in srgb, var(--accent), var(--bg) 50%);
 		border-bottom: 0.25rem solid var(--text);
 
